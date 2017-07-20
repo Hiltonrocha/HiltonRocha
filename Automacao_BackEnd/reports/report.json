@@ -1,0 +1,160 @@
+[
+  {
+    "uri": "features/specs/backend.feature",
+    "id": "busca-cep",
+    "keyword": "Funcionalidade",
+    "name": "Busca CEP",
+    "description": "",
+    "line": 4,
+    "comments": [
+      {
+        "value": "#encoding: utf-8",
+        "line": 1
+      }
+    ],
+    "elements": [
+      {
+        "id": "busca-cep;busca-por-cep-válido",
+        "keyword": "Cenário",
+        "name": "Busca por CEP Válido",
+        "description": "",
+        "line": 7,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@a",
+            "line": 6
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Quando ",
+            "name": "faço uma busca de cep \"08553330\" pelo o serviço de BuscaCep",
+            "line": 8,
+            "match": {
+              "location": "features/step_definitions/cep_steps.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 904262949
+            }
+          },
+          {
+            "keyword": "Então ",
+            "name": "o código de resposta deve ser \"200\"",
+            "line": 9,
+            "match": {
+              "location": "features/step_definitions/cep_steps.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2723410
+            }
+          },
+          {
+            "keyword": "E ",
+            "name": "o serviço deve retornar as informações do CEP cadastrado",
+            "line": 10,
+            "rows": [
+              {
+                "cells": [
+                  "cep",
+                  "08553330"
+                ]
+              },
+              {
+                "cells": [
+                  "tipologradouro",
+                  "Rua"
+                ]
+              },
+              {
+                "cells": [
+                  "logradouro",
+                  "Queluz"
+                ]
+              },
+              {
+                "cells": [
+                  "bairro",
+                  "Jardim Julieta"
+                ]
+              },
+              {
+                "cells": [
+                  "cidade",
+                  "Poá"
+                ]
+              },
+              {
+                "cells": [
+                  "estado",
+                  "SP"
+                ]
+              }
+            ],
+            "match": {
+              "location": "features/step_definitions/cep_steps.rb:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 326827
+            }
+          }
+        ]
+      },
+      {
+        "id": "busca-cep;busca-por-cep-inválido",
+        "keyword": "Cenário",
+        "name": "Busca por CEP inválido",
+        "description": "",
+        "line": 18,
+        "type": "scenario",
+        "tags": [
+          {
+            "name": "@b",
+            "line": 17
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Quando ",
+            "name": "faço uma busca de cep \"00000000\" pelo o serviço de BuscaCep",
+            "line": 19,
+            "match": {
+              "location": "features/step_definitions/cep_steps.rb:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 871648591
+            }
+          },
+          {
+            "keyword": "Então ",
+            "name": "o código de resposta deve ser \"404\"",
+            "line": 20,
+            "match": {
+              "location": "features/step_definitions/cep_steps.rb:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 68267
+            }
+          },
+          {
+            "keyword": "E ",
+            "name": "o serviço deve retornar a resposta \"Endereço não encontrado!\"",
+            "line": 21,
+            "match": {
+              "location": "features/step_definitions/cep_steps.rb:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 81920
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

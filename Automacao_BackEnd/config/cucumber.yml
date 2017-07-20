@@ -1,0 +1,3 @@
+default: --no-source --color --format pretty
+report_html: -f html --out=reports/report.html
+report_json: -f json --out=reports/report.json
